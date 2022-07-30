@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1659147837024
+Build-Jdk-Spec: 18
+Bundle-Activator: org.messenger.Activator
+Bundle-ManifestVersion: 2
+Bundle-Name: messenger
+Bundle-SymbolicName: com.messenger
+Bundle-Version: 1.0.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin 5.1.6
+Export-Package: org.messenger;version="1.0.0.SNAPSHOT";uses:="org.osgi.f
+ ramework",org.messenger.message.controller;version="1.0.0.SNAPSHOT";use
+ s:="org.messenger.message.model",org.messenger.message.dao;version="1.0
+ .0.SNAPSHOT";uses:="org.messenger.message.model",org.messenger.message.
+ model;version="1.0.0.SNAPSHOT",org.messenger.message.service;version="1
+ .0.0.SNAPSHOT";uses:="org.messenger.message.model",org.messenger.messag
+ e.view;version="1.0.0.SNAPSHOT";uses:="org.messenger.message.model"
+Import-Package: java.io,java.lang,java.lang.invoke,java.sql,java.util,or
+ g.apache.log4j;version="[1.2,2)",org.authentication.authentication.conn
+ ectDatabase;version="[1.0,2)",org.authentication.authentication.excepti
+ on;version="[1.0,2)",org.authentication.authentication.model;version="[
+ 1.0,2)",org.authentication.authentication.validation;version="[1.0,2)",
+ org.messenger.message.controller;version="[1.0,2)",org.messenger.messag
+ e.dao;version="[1.0,2)",org.messenger.message.model;version="[1.0,2)",o
+ rg.messenger.message.service;version="[1.0,2)",org.osgi.framework;versi
+ on="[1.10,2)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=14))"
+Tool: Bnd-6.2.0.202202251641
