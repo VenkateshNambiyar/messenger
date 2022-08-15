@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<features>
-    <feature name = 'authentication' version="1.0-SNAPSHOT">
-        <bundle>mvn:com.authentication/authentication/1.0-SNAPSHOT</bundle>
-        <bundle>mvn:com.messenger/messenger/1.0-SNAPSHOT</bundle>
-    </feature>
-
-</features>
