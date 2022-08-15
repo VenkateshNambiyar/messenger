@@ -5,11 +5,12 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/com.authentication/pom.xml" />
-        <option value="$PROJECT_DIR$/com.message/pom.xml" />
-        <option value="$PROJECT_DIR$/features/pom.xml" />
-        <option value="$PROJECT_DIR$/com.messenger/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/connectDatabase/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_18" default="true" project-jdk-name="18" project-jdk-type="JavaSDK">

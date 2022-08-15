@@ -1,4 +1,4 @@
-package org.messenger.message.dao;
+package org.messenger.message;
 
 
 import org.authentication.authentication.connectDatabase.ConnectDataBase;
@@ -21,10 +21,10 @@ public class MessageDao {
      * retrieveMessageId() method retrieve a messageId from Database
      * @param message represent a Message class object instance
      */
-    private static void retrieveMessageId(final Message message) {
+    private void retrieveMessageId(final Message message) {
         final String selectSql = "select org_id from message where message_time = ?";
 
-        try (final PreparedStatement preparedStatement = ConnectDataBase.getConnection().prepareStatement(selectSql)) {
+        try (PreparedStatement preparedStatement = ConnectDataBase.getConnection().prepareStatement(selectSql)) {
             preparedStatement.setTimestamp(1, message.getMessageTime());
             final ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -41,13 +41,15 @@ public class MessageDao {
      * @param contact represent a Contact class object instance
      * @return a boolean value
      */
-    public static boolean profileId(final Message message, final Contact contact) {
-        ContactDao.retrieveUserId(contact);
+    public boolean profileId(final Message message, final Contact contact) {
+        final ContactDao contactDao = new ContactDao();
+
+        contactDao.retrieveUserId(contact);
 
         try {
             final String selectSql = "select contact_id from user_contact where contact_id = ? and user_id = ? ";
 
-            try (final PreparedStatement preparedStatement =
+            try (PreparedStatement preparedStatement =
                          ConnectDataBase.getConnection().prepareStatement(selectSql)) {
                 preparedStatement.setLong(2, contact.getRetrieveUserId());
                 preparedStatement.setLong(1, message.getProfile_Id());
@@ -68,7 +70,7 @@ public class MessageDao {
      * @param message represent a Message class object instance
      * @return
      */
-    public static boolean validateProfileId(final Contact contact, final Message message) {
+    public boolean validateProfileId(final Contact contact, final Message message) {
         if (contact.getRetrieveContactId().equals(message.getProfile_Id())) {
             return true;
         } else {
@@ -80,10 +82,10 @@ public class MessageDao {
      *  sendMessageDetails() store a message into database.
      * @param message represent a Messenger class object instance
      */
-    private static void sendMessageDetails(final Message message) {
+    private void sendMessageDetails(final Message message) {
         final String insertSql = "insert into message(message_time, message_details) values(?, ?)";
 
-        try (final PreparedStatement preparedStatement = ConnectDataBase.getConnection().prepareStatement(insertSql)) {
+        try (PreparedStatement preparedStatement = ConnectDataBase.getConnection().prepareStatement(insertSql)) {
             preparedStatement.setTimestamp(1, message.getMessageTime());
             preparedStatement.setString(2, message.getMessageDetails());
             preparedStatement.execute();
@@ -98,14 +100,14 @@ public class MessageDao {
      * @param contact represent a Contact class object instance
      * @return a boolean value
      */
-    public static boolean sendMessage(final Message message, final Contact contact) {
+    public boolean sendMessage(final Message message, final Contact contact) {
         sendMessageDetails(message);
 
         retrieveMessageId(message);
 
         final String insertSql = "insert into user_message(user_id, message_id, contact_id) values (?, ?, ?)";
 
-        try (final PreparedStatement preparedStatement = ConnectDataBase.getConnection().prepareStatement(insertSql)) {
+        try (PreparedStatement preparedStatement = ConnectDataBase.getConnection().prepareStatement(insertSql)) {
             preparedStatement.setLong(1, contact.getRetrieveUserId());
             preparedStatement.setLong(2, message.getMessage_id());
             preparedStatement.setLong(3, message.getProfile_Id());
@@ -122,13 +124,15 @@ public class MessageDao {
      * @param contact represent a Contact class object instance
      * @return contactId
      */
-    public static List<Long> sendMessageHistory(final Contact contact) {
-        ContactDao.retrieveUserId(contact);
+    public List<Long> sendMessageHistory(final Contact contact) {
+        final ContactDao contactDao = new ContactDao();
+
+        contactDao.retrieveUserId(contact);
 
         final List<Long> contactId = new ArrayList<>();
         final String selectSql = "Select contact_id from user_contact where user_id = ?";
 
-        try (final PreparedStatement preparedStatement = ConnectDataBase.getConnection().prepareStatement(selectSql)) {
+        try (PreparedStatement preparedStatement = ConnectDataBase.getConnection().prepareStatement(selectSql)) {
             preparedStatement.setLong(1, contact.getRetrieveUserId());
             final ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -147,7 +151,7 @@ public class MessageDao {
      * @param contact represent a Contact class object instance
      * @return retrieveMessageId from DataBase
      */
-    public static List<Long> messageHistory(final Contact contact) {
+    public List<Long> messageHistory(final Contact contact) {
         final List<Long> retrieveContactId = sendMessageHistory(contact);
 
         final List<Long> retrieveMessageId = new ArrayList<>();
@@ -158,7 +162,7 @@ public class MessageDao {
                 contact.setRetrieveContactId (iterator.next());
                 final String messageHistory = "Select message_id from user_message where user_id =? and contact_id = ?";
 
-                try (final PreparedStatement preparedStatement =
+                try (PreparedStatement preparedStatement =
                              ConnectDataBase.getConnection().prepareStatement(messageHistory)) {
                     preparedStatement.setLong(1, contact.getRetrieveUserId());
                     preparedStatement.setLong(2, contact.getRetrieveContactId());
@@ -182,7 +186,7 @@ public class MessageDao {
     * @param contact represent a Contact class object instance
      * @retun List<Message></Message>
      */
-    public static List<Message> displayMessage(final Message message, final Contact contact) {
+    public List<Message> displayMessage(final Message message, final Contact contact) {
         final List<Message> displayMessageDetails = new ArrayList<>();
         final List<Long> retrieveMessage = messageHistory(contact);
 
@@ -191,7 +195,7 @@ public class MessageDao {
 
             final String selectSql = "Select message_time, message_details  from message where org_id = ?";
 
-            try (final PreparedStatement preparedStatement =
+            try (PreparedStatement preparedStatement =
                          ConnectDataBase.getConnection().prepareStatement(selectSql)) {
                 preparedStatement.setLong(1, message.getMessage_id());
 

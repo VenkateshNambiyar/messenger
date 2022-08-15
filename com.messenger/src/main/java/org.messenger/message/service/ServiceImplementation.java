@@ -12,13 +12,16 @@ import java.util.List;
  */
 public class ServiceImplementation implements Service {
 
+	private static final ContactDao CONTACT_DAO = new ContactDao();
+	private static final MessageDao MESSAGE_DAO = new MessageDao();
+
     /**
      * displayContact() method represent a display a user contact retrieve from database
      * @param contact represent a Contact class object instance
      * @return return List<Contact> to view class
      */
     public List<Contact> displayContact(final Contact contact) {
-        return ContactDao.displayContact(contact);
+        return CONTACT_DAO.displayContact(contact);
     }
 
     /**
@@ -27,7 +30,7 @@ public class ServiceImplementation implements Service {
      * @return a boolean to Message View
      */
     public boolean addContact(final Contact contact) {
-        return ContactDao.addContact(contact);
+        return CONTACT_DAO.addContact(contact);
     }
 
     /**
@@ -37,7 +40,7 @@ public class ServiceImplementation implements Service {
      * @return a boolean to Message view
      */
     public boolean profileId(final Message message, final Contact contact) {
-        return MessageDao.profileId(message, contact);
+        return MESSAGE_DAO.profileId(message, contact);
     }
 
     /**
@@ -47,7 +50,7 @@ public class ServiceImplementation implements Service {
      * @return boolean to Message view
      */
     public boolean messageDetails(final Contact contact, final Message message) {
-        return MessageDao.sendMessage(message, contact);
+        return MESSAGE_DAO.sendMessage(message, contact);
     }
 
     /**
@@ -57,6 +60,6 @@ public class ServiceImplementation implements Service {
      * @return a List<Message> to Message view
      */
     public List<Message> sendMessageHistory(final Message message, final Contact contact) {
-        return MessageDao.displayMessage(message, contact);
+        return MESSAGE_DAO.displayMessage(message, contact);
     }
 }

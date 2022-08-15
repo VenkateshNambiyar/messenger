@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.6.0" name="messengerFeature-1.0-SNAPSHOT">
+    <feature name="messengerFeature" description="messengerFeature" version="1.0.0.SNAPSHOT">
+        <details>${project.description}</details>
+        <bundle start-level="50">mvn:in.messenger/authentication/1.0-SNAPSHOT</bundle>
+        <bundle start-level="50">mvn:log4j/log4j/1.2.17</bundle>
+        <bundle start-level="50">mvn:in.messenger/exception/1.0-SNAPSHOT</bundle>
+        <bundle start-level="50">mvn:in.messenger/userInput/1.0-SNAPSHOT</bundle>
+        <bundle start-level="50">mvn:in.messenger/validation/1.0-SNAPSHOT</bundle>
+        <bundle start-level="50">mvn:in.messenger/connectDatabase/1.0-SNAPSHOT</bundle>
+        <bundle start-level="50">mvn:javax.ws.rs/javax.ws.rs-api/2.0.1</bundle>
+        <bundle start-level="50">mvn:org.postgresql/postgresql/42.3.6</bundle>
+        <bundle start-level="50">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.13.3</bundle>
+        <bundle start-level="50">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/2.13.3</bundle>
+        <bundle start-level="50">mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.13.3</bundle>
+        <bundle start-level="50">mvn:jakarta.xml.bind/jakarta.xml.bind-api/2.3.3</bundle>
+        <bundle start-level="50">mvn:jakarta.activation/jakarta.activation-api/1.2.1</bundle>
+        <bundle start-level="50">mvn:com.fasterxml.jackson.core/jackson-databind/2.9.4</bundle>
+        <bundle start-level="50">mvn:com.fasterxml.jackson.core/jackson-annotations/2.9.0</bundle>
+        <bundle start-level="50">mvn:com.fasterxml.jackson.core/jackson-core/2.9.4</bundle>
+        <bundle start-level="50">mvn:in.messenger/message/1.0-SNAPSHOT</bundle>
+    </feature>
+</features>

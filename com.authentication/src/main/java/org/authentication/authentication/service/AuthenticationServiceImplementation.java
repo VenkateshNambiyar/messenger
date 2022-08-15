@@ -9,13 +9,14 @@ import org.authentication.authentication.model.Authentication;
  * AuthenticationServiceImplementation class implements a Messenger Authentication abstract methods
  */
 public class AuthenticationServiceImplementation implements AuthenticationService {
+    private static final AuthenticationDao AUTHENTICATION_DAO = new AuthenticationDao();
 
     /**
      * login() methods provides a  user to log_in their account
      */
     @Override
     public boolean login(final Authentication authentication) {
-        return AuthenticationDao.login(authentication);
+        return AUTHENTICATION_DAO.login(authentication);
     }
 
     /**
@@ -25,7 +26,7 @@ public class AuthenticationServiceImplementation implements AuthenticationServic
     public boolean signUp(Authentication authentication) {
         validateUsername(authentication);
 
-        return AuthenticationDao.addUser(authentication);
+        return AUTHENTICATION_DAO.addUser(authentication);
     }
 
     /**
@@ -47,6 +48,6 @@ public class AuthenticationServiceImplementation implements AuthenticationServic
      public boolean updatePassword(final Authentication authentication) {
         validateUsername(authentication);
 
-        return AuthenticationDao.updatePassword(authentication);
+        return AUTHENTICATION_DAO.updatePassword(authentication);
      }
 }

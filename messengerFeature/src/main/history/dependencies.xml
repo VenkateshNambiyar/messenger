@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.6.0" name="messengerFeature-1.0-SNAPSHOT">
+    <feature version="0.0.0">
+        <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/2.9.0</bundle>
+        <bundle>mvn:com.fasterxml.jackson.core/jackson-core/2.9.4</bundle>
+        <bundle>mvn:com.fasterxml.jackson.core/jackson-databind/2.9.4</bundle>
+        <bundle>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/2.13.3</bundle>
+        <bundle>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.13.3</bundle>
+        <bundle>mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.13.3</bundle>
+        <bundle>mvn:in.messenger/authentication/1.0-SNAPSHOT</bundle>
+        <bundle>mvn:in.messenger/connectDatabase/1.0-SNAPSHOT</bundle>
+        <bundle>mvn:in.messenger/exception/1.0-SNAPSHOT</bundle>
+        <bundle>mvn:in.messenger/message/1.0-SNAPSHOT</bundle>
+        <bundle>mvn:in.messenger/userInput/1.0-SNAPSHOT</bundle>
+        <bundle>mvn:in.messenger/validation/1.0-SNAPSHOT</bundle>
+        <bundle>mvn:jakarta.activation/jakarta.activation-api/1.2.1</bundle>
+        <bundle>mvn:jakarta.xml.bind/jakarta.xml.bind-api/2.3.3</bundle>
+        <bundle>mvn:javax.ws.rs/javax.ws.rs-api/2.0.1</bundle>
+        <bundle>mvn:log4j/log4j/1.2.17</bundle>
+        <bundle>mvn:org.postgresql/postgresql/42.3.6</bundle>
+    </feature>
+</features>

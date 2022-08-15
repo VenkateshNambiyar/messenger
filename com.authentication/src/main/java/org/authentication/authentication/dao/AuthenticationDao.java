@@ -10,18 +10,18 @@ import java.sql.ResultSet;
 
 
 /**
- * AuthenticationDao class insert and retrieve data from database
+ * To insert and retrieve data from database
  */
 public class AuthenticationDao {
 
     /**
-     * addUser() to insert a user information into DataBase.
+     * To insert a user information into DataBase.
      * @param authentication represents an Authentication class object
      */
-    public static boolean addUser(final Authentication authentication) {
+    public boolean addUser(final Authentication authentication) {
         final String insertSql = "insert into user_login (user_name, password) values(?, ?)";
 
-        try (final PreparedStatement preparedStatement = ConnectDataBase.getConnection().prepareStatement(insertSql)) {
+        try (PreparedStatement preparedStatement = ConnectDataBase.getConnection().prepareStatement(insertSql)) {
             preparedStatement.setString(1, authentication.getUsername());
             preparedStatement.setString(2, authentication.getPassword());
             return preparedStatement.execute();
@@ -31,10 +31,10 @@ public class AuthenticationDao {
     }
 
     /**
-     * retrieveUserName() it retrieves a userName from database
+     * It retrieves a userName from database
      * @param authentication represent an Authentication object
      */
-    private static void retrieveUserName(final Authentication authentication) {
+    private void retrieveUserName(final Authentication authentication) {
         final String selectSql = " Select user_name, password from user_login where user_name = ?";
 
         try (PreparedStatement preparedStatement = ConnectDataBase.getConnection().prepareStatement(selectSql)) {
@@ -51,10 +51,10 @@ public class AuthenticationDao {
     }
 
     /**
-     * login() methods get a login details from database
+     * Get a login details from database
      * @param authentication represent an Authentication class object
      */
-    public static boolean login(final Authentication authentication) {
+    public boolean login(final Authentication authentication) {
         try {
             retrieveUserName(authentication);
 
@@ -66,24 +66,24 @@ public class AuthenticationDao {
     }
 
     /**
-     * validateUsername() validate a user information using retrieve data from Database
+     * validate a user information using retrieve data from Database
      * @param authentication represent an Authentication class object
      * @return true
      */
-    public static Boolean validateUsername(final Authentication authentication) {
+    public Boolean validateUsername(final Authentication authentication) {
         retrieveUserName(authentication);
 
         return authentication.getUsername().equals(authentication.getRetrieveUsername());
     }
 
     /**
-     * updatePassword() its change a password in Database.
+     * To change a password in Database.
      * @param authentication represent an Authentication class Object
      */
-    public static boolean updatePassword(final Authentication authentication) {
+    public boolean updatePassword(final Authentication authentication) {
         final String updateSql = "update user_login SET password = ? where user_name = ?";
 
-        try (final PreparedStatement preparedStatement =
+        try (PreparedStatement preparedStatement =
                      ConnectDataBase.getConnection().prepareStatement(updateSql)) {
             preparedStatement.setString(1,authentication.getPassword());
             preparedStatement.setString(2,authentication.getUsername());

@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1660595646885
+Build-Jdk-Spec: 18
+Bundle-ManifestVersion: 2
+Bundle-Name: connectDatabase
+Bundle-SymbolicName: connectDatabase
+Bundle-Version: 1.0.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin 5.1.8
+Export-Package: in.messenger.connectDatabase;version="1.0.0.SNAPSHOT"
+Import-Package: in.messenger.exception;version="[1.0,2)",java.io,java.la
+ ng,java.sql,java.util,org.postgresql;version="[42.3,43)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=18))"
+Tool: Bnd-6.3.1.202206071316

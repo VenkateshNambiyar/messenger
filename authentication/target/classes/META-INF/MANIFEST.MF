@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1660595647831
+Build-Jdk-Spec: 18
+Bundle-Blueprint: OSGI-INF/blueprint/my-service.xml
+Bundle-ManifestVersion: 2
+Bundle-Name: authentication
+Bundle-SymbolicName: in.messenger.authentication
+Bundle-Version: 1.0.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin 5.1.6
+Export-Package: in.messenger.authentication.controller;version="1.0.0.SN
+ APSHOT";uses:="in.messenger.authentication.model,javax.ws.rs",in.messen
+ ger.authentication.dao;version="1.0.0.SNAPSHOT";uses:="in.messenger.aut
+ hentication.model",in.messenger.authentication.model;version="1.0.0.SNA
+ PSHOT",in.messenger.authentication.service;version="1.0.0.SNAPSHOT";use
+ s:="in.messenger.authentication.model"
+Export-Service: in.messenger.authentication.controller.AuthenticationRes
+ tController;osgi.service.blueprint.compname=serviceBean
+Import-Package: com.fasterxml.jackson.jaxrs.json;version="[2.13,3)",in.m
+ essenger.authentication.dao;version="[1.0,2)",in.messenger.authenticati
+ on.model;version="[1.0,2)",in.messenger.authentication.service;version=
+ "[1.0,2)",in.messenger.connectDatabase;version="[1.0,2)",in.messenger.e
+ xception;version="[1.0,2)",java.lang,java.sql,java.util,javax.ws.rs;ver
+ sion="[2.0,3)",org.osgi.service.blueprint;version="[1.0.0,2.0.0)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=14))"
+Tool: Bnd-6.2.0.202202251641

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<features name="messengerFeature-1.0-SNAPSHOT" xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
+
+    <feature name='messengerFeature' description='messengerFeature' version='1.0-SNAPSHOT'>
+        <details>${project.description}</details>
+        <!-- <config>foo=bar</config> -->
+    </feature>
+
+</features>

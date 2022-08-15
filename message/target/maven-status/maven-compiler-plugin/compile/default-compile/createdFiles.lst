@@ -1,0 +1,12 @@
+in\messenger\message\controller\MessengerRestControllerImpl.class
+in\messenger\message\view\MessageView.class
+in\messenger\message\view\ContactView.class
+in\messenger\message\model\Contact.class
+in\messenger\message\controller\MessageController.class
+in\messenger\message\dao\ContactDao.class
+in\messenger\message\controller\ContactController.class
+in\messenger\message\dao\MessageDao.class
+in\messenger\message\service\Service.class
+in\messenger\message\controller\MessengerRestController.class
+in\messenger\message\model\Message.class
+in\messenger\message\service\ServiceImplementation.class

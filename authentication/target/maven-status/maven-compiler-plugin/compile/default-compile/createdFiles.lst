@@ -1,0 +1,7 @@
+in\messenger\authentication\controller\AuthenticationRestControllerImpl.class
+in\messenger\authentication\model\Authentication.class
+in\messenger\authentication\service\AuthenticationServiceImplementation.class
+in\messenger\authentication\dao\AuthenticationDao.class
+in\messenger\authentication\controller\AuthenticationController.class
+in\messenger\authentication\controller\AuthenticationRestController.class
+in\messenger\authentication\service\AuthenticationService.class

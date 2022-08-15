@@ -1,0 +1,4 @@
+in\messenger\exception\UserNotFoundException.class
+in\messenger\exception\UsernameAlreadyExistsException.class
+in\messenger\exception\CustomException.class
+in\messenger\exception\DatabaseNotConnectedException.class

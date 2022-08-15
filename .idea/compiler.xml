@@ -6,15 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="features" />
-        <module name="com.messenger" />
-        <module name="com.mess" />
-        <module name="com.authentication" />
+        <module name="exception" />
+        <module name="messengerFeature" />
+        <module name="databaseConnection" />
+        <module name="userInput" />
+        <module name="message" />
+        <module name="validation" />
         <module name="authentication" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="feature" target="1.5" />
+      <module name="connectDatabase" target="18" />
     </bytecodeTargetLevel>
   </component>
 </project>
